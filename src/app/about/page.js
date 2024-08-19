@@ -11,7 +11,7 @@ const About = () => {
         <>
             <section className="px-12 sm:px-24  py-10 dark:bg-gradient-to-r from-blue-800 to-indigo-900 dark:text-indigo-100">
                 <h2 className="font-semibold text-red-500 text-center text-3xl">About Me</h2>
-                <p className="my-6 px-4 text-center"> As a 6th semester student, I'm passionate about web
+                <p className="my-6 px-4 text-center"> As a 7th semester student, I'm passionate about web
                     development and data science. Seeking opportunities to gain
                     real-world experience in a professional setting to enhance
                     skills and knowledge in these areas</p>
