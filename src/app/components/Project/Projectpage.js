@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation"
 const Projects = (props) => {
 
     const [Project, setProject] = useState([])
+
+
+
     const fetchProject = async () => {
         const response = await fetch(`/api/Projects`)
         let data = await response.json()

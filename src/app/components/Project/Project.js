@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
-const page = (props) => {
+const Project = (props) => {
     const id = props.id
     const images = props.multiimages
 
@@ -68,4 +68,4 @@ const page = (props) => {
     )
 }
 
-export default page
+export default Project
