@@ -41,24 +41,24 @@ const Project = (props) => {
                     <div className="flex flex-wrap md:-m-2 -m-1">
                         <div className="flex flex-wrap w-1/2">
                             <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${images}${project.images[0]}`} />
+                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${project.images[0]}`} />
                             </div>
                             <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${images}${project.images[1]}`} />
+                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${project.images[1]}`} />
                             </div>
                             <div className="md:p-2 p-1 w-full">
-                                <img alt="gallery" className="w-full h-full object-cover object-center block dark:shadow:lg dark:shadow-black/50" src={`${images}${project.images[2]}`} />
+                                <img alt="gallery" className="w-full h-full object-cover object-center block dark:shadow:lg dark:shadow-black/50" src={`${project.images[2]}`} />
                             </div>
                         </div>
                         <div className="flex flex-wrap w-1/2">
                             <div className="md:p-2 p-1 w-full">
-                                <img alt="gallery" className="w-full h-full object-cover object-center block dark:shadow:lg dark:shadow-black/50" src={`${images}${project.images[3]}`} />
+                                <img alt="gallery" className="w-full h-full object-cover object-center block dark:shadow:lg dark:shadow-black/50" src={`${project.images[3]}`} />
                             </div>
                             <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${images}${project.images[4]}`} />
+                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${project.images[4]}`} />
                             </div>
                             <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${images}${project.images[5]}`} />
+                                <img alt="gallery" className="w-full object-cover h-full object-center block dark:shadow:lg dark:shadow-black/50" src={`${project.images[5]}`} />
                             </div>
                         </div>
                     </div>

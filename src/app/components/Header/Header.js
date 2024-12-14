@@ -15,19 +15,19 @@ const Header = () => {
 
             <nav className="nav font-semibold text-base">
                 <ul className="flex flex-wrap items-center justify-center md:justify-end">
-                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/" ? "border-red-500 text-red-500" : "border-transparent hover:border-red-500 hover:text-red-500"} transition-all duration-200`}>
+                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/" ? "border-red-500 text-red-500" : "border-transparent  hover:text-red-500"} transition-all duration-200`}>
                         <Link href="/" className={`text-sm md:text-base lg:text-lg ${pathname == "/" ? "active text-red-500" : ""}`}>Home</Link>
                     </li>
-                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/about" ? "border-red-500 text-red-500" : "border-transparent hover:border-red-500 hover:text-red-500"} transition-all duration-200`}>
+                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/about" ? "border-red-500 text-red-500" : "border-transparent  hover:text-red-500"} transition-all duration-200`}>
                         <Link href="/about" className={`text-sm md:text-base lg:text-lg ${pathname == "/about" ? "active text-red-500" : ""}`}>About</Link>
                     </li>
-                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/Resume" ? "border-red-500 text-red-500" : "border-transparent hover:border-red-500 hover:text-red-500"} transition-all duration-200`}>
+                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/Resume" ? "border-red-500 text-red-500" : "border-transparent  hover:text-red-500"} transition-all duration-200`}>
                         <Link href="/Resume" className={`text-sm md:text-base lg:text-lg ${pathname == "/Resume" ? "active text-red-500" : ""}`}>Resume</Link>
                     </li>
-                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/Projects" ? "border-red-500 text-red-500" : "border-transparent hover:border-red-500 hover:text-red-500"} transition-all duration-200`}>
+                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/Projects" ? "border-red-500 text-red-500" : "border-transparent  hover:text-red-500"} transition-all duration-200`}>
                         <Link href="/Projects" className={`text-sm md:text-base lg:text-lg ${pathname == "/Projects" ? "active text-red-500" : ""}`}>Projects</Link>
                     </li>
-                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/Contact" ? "border-red-500 text-red-500" : "border-transparent hover:border-red-500 hover:text-red-500"} transition-all duration-200`}>
+                    <li className={`p-2 md:p-4 cursor-pointer border-b-2 ${pathname == "/Contact" ? "border-red-500 text-red-500" : "border-transparent  hover:text-red-500"} transition-all duration-200`}>
                         <Link href="/Contact" className={`text-sm md:text-base lg:text-lg ${pathname == "/Contact" ? "active text-red-500" : ""}`}>Contact</Link>
                     </li>
                 </ul>

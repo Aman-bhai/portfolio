@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "./components/Button/Button";
 
 export default function Home() {
+  
   return (
     <>
       <section className="flex px-12 sm:px-28 py-16 justify-evenly flex-col-reverse gap-8 lg:flex-row min-h-screen dark:bg-gradient-to-r from-blue-800 to-indigo-900 dark:text-indigo-200">

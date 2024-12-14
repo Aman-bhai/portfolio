@@ -10,6 +10,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useRouter } from "next/navigation";
 import BeforeLogin from "@/app/components/BeforeLogin/BeforeLogin";
 import UsersFetch from "@/app/components/User/UsersFetch";
+import { resolve } from "path";
 
 const AddProject = () => {
     const [file, setFile] = useState<File | undefined>(undefined);
@@ -181,6 +182,17 @@ const AddProject = () => {
                                     setFile(file);
                                 }}
                             />
+                           {Progress > 0 && Progress < 100 && (
+  <div className="w-full bg-gray-300 rounded-full dark:bg-gray-800 my-4 h-6 relative">
+    <div
+      className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-xs font-medium text-white text-center leading-6 rounded-full transition-all duration-300"
+      style={{ width: `${Progress}%` }}
+    >
+      {Progress}%
+    </div>
+  </div>
+)}
+
                             {Progress > 0 && file && img ? (
                                 <span className="mt-4 my-auto">Uploading Successfully</span>
                             ) : (
@@ -188,15 +200,18 @@ const AddProject = () => {
                                     className="bg-red-700 text-white h-fit w-fit my-auto px-4 py-2 hover:bg-red-500 rounded-md"
                                     onClick={async () => {
                                         if (file) {
-                                            const formData = new FormData();
-                                            formData.append("file", file);
-                                            const response = await fetch("/api/Projects/uploadImage", {
-                                                method: "POST",
-                                                body: formData,
-                                            });
-                                            const result = await response.json();
-                                            setimg(result.url);
-                                            setProgress(100);
+                                            const res = await edgestore.publicFiles.upload({
+                                                file,
+                                                onProgressChange: (progress) => {
+                                                  // you can use this to show a progress bar
+                                                  // console.log(progress);
+                                                  setProgress(progress);
+                                                },
+                                              });
+                                              // you can run some server action or api here
+                                              // to add the necessary data to your database
+                                              console.log(res);
+                                              setimg(res?.url);
                                         }
                                     }}
                                 >
@@ -209,14 +224,41 @@ const AddProject = () => {
                             <MultiFileDropzone
                                 value={fileStates}
                                 onChange={(fileStates) => setFileStates(fileStates)}
+                                onFilesAdded={async(addedFiles)=>{
+                                    setFileStates([...fileStates,...addedFiles])
+
+                                    await Promise.all(
+                                        addedFiles.map(async(addedFilestate)=>{
+                                            try{
+                                                const res=await edgestore.publicImages.upload({
+                                                    file:addedFilestate.file,
+                                                    onProgressChange:async(progress)=>{
+                                                        updateFileProgress(addedFilestate.key,progress)
+                                                        if(progress==100){
+                                                            await new Promise((resolve)=>{
+                                                                setTimeout(resolve,100)
+                                                            })
+                                                            updateFileProgress(addedFilestate.key,"COMPLETE")
+                                                        }
+                                                    }
+                                                })
+                                                console.log(res)
+                                                setimages((prevImages)=>[...prevImages,res.url])
+                                            }
+                                            catch(err){
+                                                updateFileProgress(addedFilestate.key,"ERROR")
+                                            }
+                                        })
+                                    )
+                                }}
                             />
                         </div>
                     </div>
                 ) : (
-                    <BeforeLogin />
+                    <BeforeLogin title="Unauthorized Access" subtitle="Only Admin can visit this page" text="Go To Homepage" link="/"/>
                 )
             ) : (
-                <BeforeLogin />
+                <BeforeLogin  title="Login is Required!" subtitle="Admin is Required for this page"  text="Go To Homepage" link="/"/>
             )}
         </div>
     );

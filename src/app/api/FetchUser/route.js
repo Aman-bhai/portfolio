@@ -13,6 +13,7 @@ export async function POST(req) {
 
     const email = await req.json();
     const doc = await User.findOne({ email })
+    
     return Response.json(doc)
 
 
